@@ -1,0 +1,40 @@
+{% extends 'registration/authbase.html' %}
+
+{% block content %}
+
+  {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+  {% endif %}
+
+  {% if next %}
+    {% if user.is_authenticated %}
+      <p>Your account doesn't have access to this page. To proceed,
+      please login with an account that has access.</p>
+    {% else %}
+      <p>Please login to see this page.</p>
+    {% endif %}
+  {% endif %}
+
+  <form method="post" action="{% url 'chat_app:login' %}">
+    <center><div>Login </div></center><br>
+    {% csrf_token %}
+    <table>
+      <tr>
+        <td>{{ form.username.label_tag }}</td>
+        <td>{{ form.username }}</td>
+      </tr>
+      <tr></tr>
+      <tr>
+        <td>{{ form.password.label_tag }}</td>
+        <td>{{ form.password }}</td>
+      </tr>
+    </table>
+
+    <center>
+    <input type="submit" value="Login" style="width: 50%; margin-top: 10px; height: 25px;"></center>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+
+
+{% endblock %}
+

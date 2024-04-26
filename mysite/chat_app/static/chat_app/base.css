@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E5E1DA;
+  }
+
+.login-out{
+  margin-top: 20px;
+    color:black;
+    max-width:fit-content;
+    padding: 10px;
+    margin-left: 1700px;
+    background-color: #DADDB1;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,36 @@
+<!-- chat/templates/chat/room.html -->
+{% extends 'chat_app/base.html' %}
+
+{% block htmlhead %} {% load static %}
+<link rel="stylesheet" href="{% static 'chat_app/room.css' %}" />
+
+{% endblock htmlhead %}
+    {% block content %}
+    <div class="flex-container">
+    <div class="flex-child magenta">
+    <center>
+    <h2>{{ room.name }}</h2>
+    <br>
+    Chat Log</br>
+    <br>
+    <textarea id="chat-log" cols="78" rows="20"></textarea><br>
+    <br><span>Message: </span>
+    <input id="chat-message-input" type="text" size="100"><br>
+   <input id="chat-message-submit" type="button" value="Send" class="button"></center>
+    </div>
+    <div class="flex-child green">
+    <center>
+        <br>
+  <h3><label for="onlineUsers" >Online users</label></h3>
+ 
+   <select multiple class="form-control" id="onlineUsersSelector">
+   </select>
+</center>
+</div>
+</div>
+    {{ room.name|json_script:"room-name" }}
+    
+    {% load static %}
+    <script src="{% static 'chat_app/room.js' %}"></script>
+
+    {% endblock content%}

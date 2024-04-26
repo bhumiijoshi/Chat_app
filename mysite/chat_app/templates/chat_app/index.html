@@ -1,0 +1,31 @@
+{% extends 'chat_app/base.html' %} {% block htmlhead %} {% load static %}
+<link rel="stylesheet" href="{% static 'chat_app/index.css' %}" />
+
+{% endblock htmlhead %} {% block content %}
+
+<div class="flex-container">
+  <div class="flex-child magenta">
+    <center>
+        <h3>
+      What chat room would you like to enter?
+    </h3>
+      <input id="room-name-input" type="text" size="40"/><br />
+
+      <input id="room-name-submit" type="button" value="Enter" class="button"/>
+    </center>
+  </div>
+
+  <div class="flex-child green">
+    <h3><label for="room-select">Active rooms</label></h3>
+
+    <select multiple class="form-control" id="room-select" >
+      {% for room in rooms %}
+      <option>{{ room }}</option>
+      {% endfor %}
+    </select>
+  </div>
+</div>
+{% load static %}
+
+<script src="{% static 'chat_app/index.js' %}"></script>
+{% endblock content%}

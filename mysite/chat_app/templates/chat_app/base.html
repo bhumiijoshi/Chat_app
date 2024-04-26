@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chit Chat</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'chat_app/base.css' %}" />
+  {% block htmlhead %} {% endblock htmlhead %}
+</head>
+
+<body>
+  <header>
+    <div class="login-out">
+
+      {%if request.user.is_authenticated %}
+
+      <span>{{ request.user.username | title }} |</span>
+      <a href="{% url 'chat_app:logout' %}">Logout</a></br>
+
+      {%endif%}
+    </div>
+
+  </header>
+  
+    {%block content%} {%endblock content%}
+
+</body>
+
+</html>

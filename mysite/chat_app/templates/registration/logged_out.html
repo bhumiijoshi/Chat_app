@@ -1,0 +1,7 @@
+{% extends 'registration/authbase.html' %}
+{% block content %}
+<center>
+  <p>Logged out!</p>
+  <a href="{% url 'chat_app:login'%}">Click here to login again.</a>
+</center>
+{% endblock %}
